@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
-class atendimentoController extends Controller
+class atendimentoProdutoController extends Controller
 {
     public function index()
     {
@@ -24,33 +24,27 @@ class atendimentoController extends Controller
         ->select('carro.placa', 'atendimento.*')
         ->get();
         return view('atendimento.list', compact('result'));
-        
-        
+       
         
        }
 
 
 public function cadastro(){
-    $listacarro = carro::all();
-    $listaprodduto = produto::all();
-    return view('atendimento.cadastro', ['carro' => $listacarro], ['produto' => $listaprodduto]);
-}
-
-public function adicao(){
     $listaatendimento = atendimento::all();
     $listaprodduto = produto::all();
-    return view('atendimento.adicao', ['atendimento' => $listaatendimento], ['produto' => $listaprodduto]);
+    return view('atendimentoproduto.adicao', ['atendimento' => $listaatendimento], ['produto' => $listaprodduto]);
 }
+
 
 public function show($id)
     {
-        $atendimento = atendimento::where("id",$id)->get()->first();
-        return view('atendimento.show', ['atendimento' => $atendimento]);
+        $atendimentoProduto = atendimento_produto::where("id",$id)->get()->first();
+        return view('atendimentoProduto.show', ['atendimento' => $atendimentoProduto]);
     }
 
 public function create()
 {
-    return view('atendimento.cadastro');
+    return view('atendimentoProduto.cadastro');
 }
 /**
  * Store a newly created resource in storage.
@@ -71,21 +65,20 @@ public function store(Request $request)
     //vetor com as mensagens de erro
     $messages = array(
 
-        'descricao.required' => 'É obrigatório uma descricao para o atendimento',
-        'valor_servico.required' => 'É obtigatório informar o valor do serviço',
-        'data_atendimento.required' => 'É obrigatório uma data para o atendimento',
-        'CBcarro.required' => 'É obrigatório uma data para o atendimento',
-        'situacao.required' => 'É obrigatório uma situacao para o atendimento',
+        
+        'atendimento.required' => 'É obrigatório um atendimento para guardar o seu produto',
+        'produtos.required' => 'É obrigatório um produto para o atendimento',
+        'quantidade.required' => 'É obtigatório informar a quantidade do produto acima',
         
 
     );
     //vetor com as especificações de validações
     $regras = array(
-        'descricao' => 'required|string|max:255',
-        'data_atendimento' => 'required',
-        'valor_servico' => 'required',
-        'CBcarro' => 'required',
-        'situacao' => 'required',
+    
+        'produtos' => 'required',
+        'quantidade' => 'required',
+        'atendimento' => 'required',
+        
         //'carro_id' => 'required'
         
         
@@ -101,21 +94,18 @@ public function store(Request $request)
     }
     
     //se passou pelas validações, explode request e coloca em um array...
+    $resultEX = explode(':', $request['produtos']);
+    $produto = $resultEX[0];
+    $preco_unitario = $resultEX[1];
 
     //se passou pelos array, processa e salva no banco...
-    $obj_Atendimento = new atendimento();
-    $obj_Atendimento->descricao = $request['descricao'];
-    $obj_Atendimento->data = $request['data_atendimento'];
-    $obj_Atendimento->carro_id = $request['CBcarro'];
-    $obj_Atendimento->situacao = $request['situacao'];
-    $obj_Atendimento->valor_servico = $request['valor_servico'];
-    $obj_Atendimento->save();
-   /* $obj_AtendimentoProduto = new atendimento_produto();
+
+    $obj_AtendimentoProduto = new atendimento_produto();
     $obj_AtendimentoProduto->produto_id = $produto;
     $obj_AtendimentoProduto->quantidade = $request['quantidade'];
     $obj_AtendimentoProduto->preco_unitario = $preco_unitario;
-    $obj_AtendimentoProduto->atendimento_id = $obj_Atendimento->id;
-    $obj_AtendimentoProduto->save(); */
+    $obj_AtendimentoProduto->atendimento_id = $request['atendimento'];
+    $obj_AtendimentoProduto->save();
 
     /* 
             
@@ -125,15 +115,15 @@ public function store(Request $request)
             'atendimento_id' => 1
         
     */
-    return redirect('/cadastro/atendimento/produto')->with('success', 'Atendimento criado com sucesso!!');
+    return redirect('/mostrar/atendimento')->with('success', 'Atendimento criado com sucesso!!');
 }
 
 public function edit($id)
     {
         $obj_Atendimento = atendimento::find($id);
         $listacarro = carro::all();
-
-        return view('atendimento.edit', ['atendimento' => $obj_Atendimento, 'carro' => $listacarro]);
+        $listaproduto = produto::all();
+        return view('atendimento.edit', ['atendimento' => $obj_Atendimento, 'carro' => $listacarro, 'produto' => $listaproduto]);
     }
 
     /**
@@ -181,6 +171,7 @@ public function edit($id)
 
     $obj_Atendimento = atendimento::findOrFail($id);
     $obj_Atendimento->descricao = $request['descricao'];
+    $obj_Atendimento->valor_total = $request['valor_total'];
     $obj_Atendimento->data = $request['data_atendimento'];
     $obj_Atendimento->carro_id = $request['CBcarro'];
     $obj_Atendimento->situacao = $request['situacao'];

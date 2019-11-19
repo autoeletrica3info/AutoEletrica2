@@ -6,7 +6,7 @@
 
 @section('href')
   <a style="font-size:22px;" href="/cadastro/atendimento/">CADASTRAR</a><br>
-  <a style="font-size:22px;" href="/adicao/atendimento/">ADICIONAR PRODUTO</a>
+
 @stop
 
 @section('conteudo')
@@ -18,7 +18,6 @@
       <th style="font-size:30px" scope="col">#</th>
       <th style="font-size:30px" scope="col">Descricao</th>
       <th style="font-size:30px" scope="col">Valor Serviço</th>
-      <th style="font-size:30px" scope="col">Valor Total</th>
       <th style="font-size:30px" scope="col">Placa do Carro</th>
       <th style="font-size:30px" scope="col">Situação</th>
       <th style="font-size:30px" scope="col">Editar</th>
@@ -32,7 +31,6 @@
       <th style="font-size:30px" scope="row"><a href="/mostrar/atendimento/{{$row->id}}">{{$row->id}}</a></th>
       <td style="font-size:30px">{{$row->descricao}}</td>
       <td style="font-size:30px">{{$row->valor_servico}}</td>
-      <td style="font-size:30px">{{$row->valor_total}}</td>
       <td style="font-size:30px">{{$row->placa}}</td>
       <td style="font-size:30px">@if ($row->situacao == 1) Solucionado 
                                  @elseif ($row->situacao == 2) Em andamento

@@ -149,8 +149,16 @@ class carroController extends Controller
      * @param  \App\carro  $carro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(carro $carro)
+    public function delete($id)
     {
-        //
+        $obj_Carro = carro::find($id);
+        return view('carro.delete', ['carro' => $obj_Carro]);
+    }
+    
+    public function destroy($id)
+    {
+        $obj_Carro = carro::findOrFail($id);
+        $obj_Carro->delete($id);
+        return Redirect('/mostrar/carro')->with('sucess', 'Atividade excluída com Sucesso!');
     }
 }

@@ -22,6 +22,7 @@ Route::get('/mostrar/carro', 'carroController@index');
 Route::get('/mostrar/produto', 'produtoController@index');
 Route::get('/mostrar/atendimento', 'atendimentoController@index');
 Route::get('/mostrar/compra', 'compraController@index');
+Route::get('/mostrar/atendimento/produto', 'atendimentoProdutoController@index');
 
 //CADASTRO
 Route::get('/cadastro/fornecedor', 'fornecedorController@cadastro')->name('cadastro/fornecedor');
@@ -35,6 +36,11 @@ Route::get('/create/produto','produtoController@create');
 Route::post('/cadastro/produto', 'produtoController@store');
 Route::get('/cadastro/atendimento', 'atendimentoController@cadastro')->name('cadastro/atendimento');
 Route::get('/create/atendimento','atendimentoController@create');
+Route::post('/cadastro/atendimento', 'atendimentoController@store');
+Route::get('/cadastro/atendimento/produto/', 'atendimentoProdutoController@cadastro')->name('cadastro/atendimento/produto');
+Route::get('/create/atendimento/produto/','atendimentoProdutoController@create');
+Route::post('/cadastro/atendimento/produto/', 'atendimentoProdutoController@store');
+
     //ADIÇÃO
     Route::get('/adicao/atendimento', 'atendimentoController@adicao')->name('/adicao/atendimento');
 Route::post('/cadastro/atendimento', 'atendimentoController@store');
@@ -65,6 +71,10 @@ Route::get('/mostrar/carro/{id}', 'carroController@show');
 Route::get('/mostrar/fornecedor/{id}', 'fornecedorController@show');
 Route::get('/mostrar/produto/{id}', 'produtoController@show');
 
+
+//DELETE
+Route::get('/excluir/carro/{id}', 'carroController@delete');
+Route::delete('/carro/{id}', 'carroController@destroy');
 
 //Route::get('/cadastro/produto', 'produtosController@index')->name('cadastro/produto');
 //Route::get('/create/produto','produtosController@create');
