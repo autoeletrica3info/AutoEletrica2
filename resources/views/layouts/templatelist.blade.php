@@ -61,6 +61,9 @@
             <div class="bg-white py-2 collapse-inner rounded">
             
               <a class="collapse-item" href="/cadastro/carro">Carros</a>
+              
+          
+
               <a class="collapse-item" href="/cadastro/atendimento">Atendimentos</a>
               <a class="collapse-item" href="/cadastro/fornecedor">Fornecedores</a>
               <a class="collapse-item" href="/cadastro/produto">Produtos</a>

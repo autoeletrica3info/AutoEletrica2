@@ -189,18 +189,16 @@ public function edit($id)
         return redirect('/mostrar/atendimento')->with('success', 'Atendimento atualizada com sucesso!!');
     }
 
-    public function delete($id)
+    public function delete($id, $id2)
     {
-        $obj_Atendimento = atendimento::find($id);
-        return view('atendimento.delete', ['atendimento' => $obj_Carro]);
+       $obj_AtendimentoProduto = atendimento_produto::where("produto_id", $id)->where("atendimento_id", $id2)->get()->first();
+       return view('atendimentoproduto.delete', ['result' => $obj_AtendimentoProduto]);
     }
     
-    public function destroy($id)
+    public function destroy($id, $id2)
     {
-        $obj_Atendimento = atendimento::findOrFail($id);
-        $id_produto = $request['idProduto'];
-        $obj_Atendimento_Produto = atendimento_produto::where('atendimento_id', $id)->where('produto_id', $id_produto);
-        $obj_Atendimento->delete($id);
-        return Redirect('/mostrar/carro')->with('sucess', 'Atividade excluída com Sucesso!');
+        $obj_AtendimentoProduto = atendimento_produto::where('produto_id', $id)->where('atendimento_id', $id2);
+        $obj_AtendimentoProduto->delete($id, $id2);
+        return Redirect('/mostrar/atendimento')->with('sucess', 'Produto do Atendimento excluída com Sucesso!');
     }
 }

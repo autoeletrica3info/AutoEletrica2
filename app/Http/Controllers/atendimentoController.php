@@ -32,20 +32,22 @@ class atendimentoController extends Controller
 
 public function cadastro(){
     $listacarro = carro::all();
-    $listaprodduto = produto::all();
-    return view('atendimento.cadastro', ['carro' => $listacarro], ['produto' => $listaprodduto]);
+    $listaproduto = produto::all();
+    return view('atendimento.cadastro', ['carro' => $listacarro], ['produto' => $listaproduto]);
 }
 
 public function adicao(){
     $listaatendimento = atendimento::all();
-    $listaprodduto = produto::all();
-    return view('atendimento.adicao', ['atendimento' => $listaatendimento], ['produto' => $listaprodduto]);
+    $listaproduto = produto::all();
+    return view('atendimento.adicao', ['atendimento' => $listaatendimento], ['produto' => $listaproduto]);
 }
 
 public function show($id)
     {
+
         $atendimento = atendimento::where("id",$id)->get()->first();
-        return view('atendimento.show', ['atendimento' => $atendimento]);
+        $atendimentoProduto = atendimento_produto::where("atendimento_id",$id)->get();
+        return view('atendimento.show', ['atendimento' => $atendimento], ['result' => $atendimentoProduto]);
     }
 
 public function create()

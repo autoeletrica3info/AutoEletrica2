@@ -64,6 +64,10 @@ Route::put('/fornecedor/{id}', 'fornecedorController@update');
 Route::get('/editar/produto/{id}', 'produtoController@edit');
 Route::put('/produto/{id}', 'produtoController@update');
 
+Route::get('/editar/atendimento/produto/{id}/{id2}', 'atendimentoProdutoController@edit');
+Route::put('/atendimento/produto/{id}/{id2}', 'atendimentoProdutoController@update');
+
+
 //SHOW
 Route::get('/mostrar/compra/{id}', 'compraController@show');
 Route::get('/mostrar/atendimento/{id}', 'atendimentoController@show');
@@ -75,6 +79,9 @@ Route::get('/mostrar/produto/{id}', 'produtoController@show');
 //DELETE
 Route::get('/excluir/carro/{id}', 'carroController@delete');
 Route::delete('/carro/{id}', 'carroController@destroy');
+
+Route::get('/excluir/atendimento/produto/{id}/{id2}', 'atendimentoProdutoController@delete');
+Route::delete('/atendimento/produto/{id}/{id2}', 'atendimentoProdutoController@destroy');
 
 //Route::get('/cadastro/produto', 'produtosController@index')->name('cadastro/produto');
 //Route::get('/create/produto','produtosController@create');
