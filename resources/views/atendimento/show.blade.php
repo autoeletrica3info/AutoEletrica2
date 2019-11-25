@@ -95,7 +95,12 @@ $( ".valor_calculado" ).each(function() {
   valorCalculado += parseInt($( this ).text());
   final = parseFloat(valorCalculado) + parseFloat(servico);
 });
-$('#valor_tot').val(final);
+if(valorCalculado == 0.00){
+  $('#valor_tot').val(parseFloat(servico));
+} else{
+  $('#valor_tot').val(final);
+}
+
 //alert(servico);
 //alert(valorCalculado);
 
