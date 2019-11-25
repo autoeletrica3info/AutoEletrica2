@@ -15,6 +15,7 @@ class AddComprasTable extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('descricao');
             $table->float('valor_total');
             $table->date('dt_compra');
             $table->timestamps();

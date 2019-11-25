@@ -84,33 +84,14 @@ EDIÇÃO DE ATENDIMENTOS
 
   <br>
 
-  <label class="col-md-8 control-label" for="produtos">Produto <h11>*</h11></label>  
-  <div class="col-md-8">
-    <select required  id="produtos" name="produtos" class="form-control">
-      <option value="">Escolha o produto</option>
-      @foreach($produto as $p)
-      <option value="{{$p->id}}:{{$p->preco_unitario}}" >{{$p->nome}}</option>
-      @endforeach
-    </select>
-  </div>
+  
 
 </div>
       <!-- Text inputText inputText inputText inputText inputText inputText inputText inputText-->
   </div>
   <div class="col-md-6">
       <!-- Text inputText inputText inputText inputText inputText inputText inputText inputText-->
-      <br>
-      <br>
-
-
-      <div class="form-grpup">
-
-        <label class="col-md-8 control-label" for="descricao">Quantidade de produtos: <h11>*</h11></label>  
-        <div class="col-md-8">
-          <input id="quantidade" name="quantidade" placeholder="" class="form-control input-md" required="" type="number">
-        </div>
-
-
+    
       <br>
 
       <label class="col-md-8 control-label" for="valor_total">Valor Serviço <h11>*</h11></label>  
@@ -133,14 +114,13 @@ EDIÇÃO DE ATENDIMENTOS
 
       <br>
 
-        <label class="col-md-8 control-label" for="valor_total">Valor Total <h11>*</h11></label>  
-        <div class="col-md-8">
-          <input id="valor_total" readonly="readonly" name="valor_total" placeholder="" class="form-control input-md" required="" type="float">
-        </div>
-
-
-      <br>
-
+      <div class="form-group">
+  <label class="col-md-2 control-label" for=""></label>  
+  <div class="col-md-8">
+  <div class="form-group">
+    <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Atualizar</button>
+    <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+</div>
 
     </div>
 
@@ -148,22 +128,6 @@ EDIÇÃO DE ATENDIMENTOS
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-<div class="form-group">
-  <label class="col-md-2 control-label" for=""></label>  
-  <div class="col-md-8">
-  <div class="form-group">
-    <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
-    <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
-</div>
   </div>
 </div>
 </fieldset>

@@ -34,7 +34,7 @@ EDIÇÃO DE COMPRAS
 <div class="form-group">
   <label class="col-md-2 control-label" for="Nome">Valor Total <h11>*</h11></label>  
   <div class="col-md-8">
-  <input type="tel" value="{{$compra->valor_total}}" required="required" maxlength="15" name="valor_total" pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$">
+  <input type="float" value="{{$compra->valor_total}}" required="required" maxlength="15" name="valor_total">
   </div>
 </div>
 

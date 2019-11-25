@@ -17,6 +17,7 @@ class AddCompraProdutoTable extends Migration
             $table->integer('produto_id')->unsigned();
             $table->integer('quantidade');
             $table->float('preco_unitario');
+            $table->float('valor_total');
             $table->integer('compra_id')->unsigned();
             $table->timestamps();
         });
@@ -33,8 +34,6 @@ class AddCompraProdutoTable extends Migration
      */
     public function down()
     {
-
             Schema::dropIfExists('compra_produto');
-    
     }
 }

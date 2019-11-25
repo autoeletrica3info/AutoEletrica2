@@ -112,7 +112,7 @@ public function store(Request $request)
     $obj_Atendimento->carro_id = $request['CBcarro'];
     $obj_Atendimento->situacao = $request['situacao'];
     $obj_Atendimento->valor_total = $total;
-    $obj_Atendimento->pagamento = 2;
+    $obj_Atendimento->pagamento = 1;
     $obj_Atendimento->valor_servico = $request['valor_servico'];
     $obj_Atendimento->save();
    /* $obj_AtendimentoProduto = new atendimento_produto();
@@ -137,6 +137,7 @@ public function edit($id)
     {
         $obj_Atendimento = atendimento::find($id);
         $listacarro = carro::all();
+        
 
         return view('atendimento.edit', ['atendimento' => $obj_Atendimento, 'carro' => $listacarro]);
     }

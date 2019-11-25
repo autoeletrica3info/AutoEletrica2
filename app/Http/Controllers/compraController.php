@@ -33,7 +33,7 @@ public function cadastro()
  
 public function create()
 {
-    return view('compra.cadastro');
+    //return view('compra.cadastro');
 }
 /**
  * Store a newly created resource in storage.
@@ -53,18 +53,15 @@ public function store(Request $request)
     //faço as validações dos campos
     //vetor com as mensagens de erro
     $messages = array(
-        'valor_total.required' => 'É obrigatório um valor para a compra',
+        'descricao.required' => 'É obrigatório uma descricao para a compra',
         'data.required' => 'É obrigatório uma data para a compra',
-        'quantidade.required' => 'É obrigatória informar a quantidade do produto para a compra',
-        'produtos.required' => 'É obrigatória informar o produto para a compra',
         
     );
     //vetor com as especificações de validações
     $regras = array(
-        'valor_total' => 'required',
+        'descricao' => 'required',
         'data' => 'required',
-        'quantidade' => 'required',
-        'produtos' => 'required',
+     
 
     );
     //cria o objeto com as regras de validação
@@ -76,26 +73,26 @@ public function store(Request $request)
         ->withInput($request->all);
     }
     //se passou pelas validações, processa e salva no banco...
-    $resultEX = explode(':', $request['produtos']);
-    $produto = $resultEX[0];
-    $preco_unitario = $resultEX[1];
-
+    $total =0;
     $obj_Compra = new compra();
-    $obj_Compra->valor_total = $request['valor_total'];
+    $obj_Compra->descricao = $request['descricao'];
     $obj_Compra->dt_compra = $request['data'];
+    $obj_Compra->valor_total = $total;
     $obj_Compra->save();
-    $obj_CompraProduto = new compra_produto();
+    /*$obj_CompraProduto = new compra_produto();
     $obj_CompraProduto->produto_id = $produto;
     $obj_CompraProduto->compra_id = $obj_Compra->id;
     $obj_CompraProduto->preco_unitario = $preco_unitario;
     $obj_CompraProduto->quantidade = $request['quantidade'];
-    $obj_CompraProduto->save();
-    return redirect('/mostrar/compra')->with('success', 'Compra registrada com sucesso!!');
+    $obj_CompraProduto->save();*/
+    return redirect('/cadastro/compra/produto')->with('success', 'Compra registrada com sucesso!!');
 }
 
-    public function rotasAjax(){
-        
-    }
+public function adicao(){
+    $listacompra = compra::all();
+    $listaproduto = produto::all();
+    return view('compra.adicao', ['compra' => $listacompra], ['produto' => $listaproduto]);
+}
 
 public function show($id)
     {
@@ -128,9 +125,9 @@ public function show($id)
         //vetor com as mensagens de erro
         $messages = array(
             'valor_total.required' => 'É obrigatório um valor para a compra',
-            'data.required' => 'É obrigatória uma data para a compra',
-            'quantidade.required' => 'É obrigatória informar a quantidade do produto para a compra',
-            'produtos.required' => 'É obrigatória informar o produto para a compra',
+        'data.required' => 'É obrigatório uma data para a compra',
+        'quantidade.required' => 'É obrigatória informar a quantidade do produto para a compra',
+        'produtos.required' => 'É obrigatória informar o produto para a compra',
             
         );
         //vetor com as especificações de validações
@@ -139,6 +136,7 @@ public function show($id)
             'data' => 'required',
             'quantidade' => 'required',
             'produtos' => 'required',
+    
             
         );
         //cria o objeto com as regras de validação

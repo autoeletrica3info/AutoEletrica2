@@ -12,7 +12,7 @@ class atendimento_produtoTableSeeder extends Seeder
      */
     public function run()
     {
-        atendimento_produto::create([
+       /* atendimento_produto::create([
             'produto_id' => 1,
             'quantidade' => 2,
             'preco_unitario' => 4.00,
@@ -33,6 +33,6 @@ class atendimento_produtoTableSeeder extends Seeder
             'preco_unitario' => 20.00,
             'valor_final' => 200.00,
             'atendimento_id' => 3
-        ]);
+        ]);*/
     }
 }

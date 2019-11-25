@@ -15,8 +15,9 @@ class compra_produtoTableSeeder extends Seeder
 
         compra_produto::create([
             'produto_id' => 1,
-            'quantidade' => 12,
-            'preco_unitario' => 55.55,
+            'quantidade' => 2,
+            'valor_total' => 100.00,
+            'preco_unitario' => 50.00,
             'compra_id' => 22
         ]);
 

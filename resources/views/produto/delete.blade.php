@@ -1,19 +1,19 @@
 @extends('layouts.templatecadastro')
 
 @section('titulo')
-Formulário de Exclusão de Carros
+Formulário de Exclusão de Produtos
 @stop
 
 @section('form')
 <hr>
-<form action="/carro/{{$carro->id}}" method="post">
+<form action="/produto/{{$produto->id}}" method="post">
     {{ csrf_field() }}
     {{ method_field('DELETE') }}
-    <p style="font-size: 32px">Deseja mesmo excluir {{$carro->placa}} ?</p>
+    <p style="font-size: 32px">Deseja mesmo excluir {{$produto->id}} ?</p>
     <button class="btn btn-danger" type="submit">Deleter</button>
 </form>
 <br>
 <br>
 <br>
-<a href="/mostrar/atividades/">Mostar Mensagem</a>
+<a href="/mostrar/produto/">Mostar Mensagem</a>
 @stop
