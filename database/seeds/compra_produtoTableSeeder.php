@@ -13,14 +13,14 @@ class compra_produtoTableSeeder extends Seeder
     public function run()
     {
 
-        compra_produto::create([
+       /* compra_produto::create([
             'produto_id' => 1,
             'quantidade' => 2,
             'valor_total' => 100.00,
             'preco_unitario' => 50.00,
             'compra_id' => 22
         ]);
-
+        */
     
     }
 }

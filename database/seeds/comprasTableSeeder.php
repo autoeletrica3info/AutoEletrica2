@@ -11,7 +11,7 @@ class comprasTableSeeder extends Seeder
      */
     public function run()
     {
-        Compra::create([
+       /* Compra::create([
             'valor_total' => 100.00,
             'descricao' => 'o de agora',
             'dt_compra' => '2019-09-18',
@@ -21,6 +21,6 @@ class comprasTableSeeder extends Seeder
             'valor_total' => 150.00,
             'descricao' => 'o de depois',
             'dt_compra' => '2019-09-17',
-        ]);
+        ]);*/   
     }
 }

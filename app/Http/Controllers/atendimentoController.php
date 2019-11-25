@@ -235,10 +235,6 @@ public function edit($id)
             $obj_Atendimento->save();
     
             return redirect('/mostrar/atendimento')->with('success', 'Atendimento atualizada com sucesso!!');
-        
-    
-           
-        
-        
+     
     }
 }

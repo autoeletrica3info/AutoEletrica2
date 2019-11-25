@@ -56,6 +56,7 @@ public function store(Request $request)
         'descricao.required' => 'É obrigatório uma descricao para a compra',
         'data.required' => 'É obrigatório uma data para a compra',
         
+        
     );
     //vetor com as especificações de validações
     $regras = array(
@@ -74,10 +75,12 @@ public function store(Request $request)
     }
     //se passou pelas validações, processa e salva no banco...
     $total =0;
+    $pago = 1;
     $obj_Compra = new compra();
     $obj_Compra->descricao = $request['descricao'];
     $obj_Compra->dt_compra = $request['data'];
     $obj_Compra->valor_total = $total;
+    $obj_Compra->pagamento = $pago;
     $obj_Compra->save();
     /*$obj_CompraProduto = new compra_produto();
     $obj_CompraProduto->produto_id = $produto;
@@ -97,7 +100,9 @@ public function adicao(){
 public function show($id)
     {
         $compra = compra::where("id",$id)->get()->first();
-        return view('compra.show', ['compra' => $compra]);
+        $result = compra_produto::where("compra_id",$id)->get();
+        
+        return view('compra.show', ['compra' => $compra, 'result' => $result]);
     }
 
     /**
@@ -173,6 +178,40 @@ public function show($id)
         //$obj_Atividade = Atividade::findOrFail($id);
        // $obj_Atividade->delete($id);
         //return Redirect('/atividades')->with('sucess', 'Atividade excluída com Sucesso!');
+    }
+
+    public function pagamento(Request $request,  $id)
+    {
+       //faço as validações dos campos
+        //vetor com as mensagens de erro
+        $messages = array(
+
+            'valor_tot.required' => 'É obrigatório uma situação para o atendimento',
+                
+            );
+            //vetor com as especificações de validações
+            $regras = array(
+            'valor_tot' => 'required',
+                
+            );
+            //cria o objeto com as regras de validação
+            $validador = Validator::make($request->all(), $regras, $messages);
+            //executa as validações
+            if ($validador->fails()) {
+                return redirect("editar/compra/$id")
+                ->withErrors($validador)
+                ->withInput($request->all);
+            }
+            //se passou pelas validações, processa e salva no banco...
+    
+            $pago = 2;
+            $obj_Compra = compra::findOrFail($id);
+            $obj_Compra->pagamento = $pago;
+            $obj_Compra->valor_total = $request['valor_tot'];
+            $obj_Compra->save();
+    
+            return redirect('/mostrar/compra')->with('success', 'Compra paga com sucesso!!');
+     
     }
 
     /*public function gerarPdf(){

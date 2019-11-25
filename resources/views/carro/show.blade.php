@@ -21,4 +21,5 @@
 <h3><b>Criada em: </b>{{$carro->created_at}}</h3>
 <h3><b>Atualizada em:   </b>{{$carro->updated_at}}</h3>
 
+
 @stop

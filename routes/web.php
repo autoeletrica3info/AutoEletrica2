@@ -103,6 +103,7 @@ Route::delete('/produto/{id}', 'produtoController@destroy');
 //Route::post('/cadastro/produto', 'produtosController@store');
 
 Route::put('pagar/{id}', 'atendimentoController@pagamento');
+Route::put('pagar/compra/{id}', 'compraController@pagamento');
 
 });
 //php artisan key:generate

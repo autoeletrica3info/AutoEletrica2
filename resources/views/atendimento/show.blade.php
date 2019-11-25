@@ -16,7 +16,7 @@
 <br>
 
 <h3><b>Descrição: </b>{{$atendimento->descricao}}</h3>
-<h3><b>Valor servico: </b><input class="servico" value="{{$atendimento->valor_servico}}"/></h3>
+<h3><b>Valor servico: </b><input readonly="true" class="servico" value="{{$atendimento->valor_servico}}"/></h3>
 <h3><b>Data da Compra: </b>{{$atendimento->data}}</h3>
 <h3><b>Carro: </b>{{$atendimento->carro_id}}</h3>
 <h3><b>Criada em: </b>{{$atendimento->created_at}}</h3>
@@ -65,7 +65,7 @@
 
 <label class="col-md-8 control-label" for="valor_total">Valor Total <h11>*</h11></label>  
       <div class="col-md-2">
-        <input id="valor_tot" name="valor_tot" placeholder="" class="form-control input-md" required="" type="float">
+        <input id="valor_tot" readonly="true" name="valor_tot" placeholder="" class="form-control input-md" required="" type="float">
       </div>
       <div class="form-group">
   <label class="col-md-2 control-label" for=""></label>   
