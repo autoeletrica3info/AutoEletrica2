@@ -99,11 +99,12 @@ public function store(Request $request)
     $preco_unitario = $resultEX[1];
 
     //se passou pelos array, processa e salva no banco...
-
+    $quantidadeA = $request['quantidade'];
     $obj_AtendimentoProduto = new atendimento_produto();
     $obj_AtendimentoProduto->produto_id = $produto;
     $obj_AtendimentoProduto->quantidade = $request['quantidade'];
     $obj_AtendimentoProduto->preco_unitario = $preco_unitario;
+    $obj_AtendimentoProduto->valor_final = $preco_unitario * $quantidadeA;
     $obj_AtendimentoProduto->atendimento_id = $request['atendimento'];
     $obj_AtendimentoProduto->save();
 

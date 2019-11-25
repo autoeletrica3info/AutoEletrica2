@@ -18,6 +18,8 @@ class AddAtendimentoTable extends Migration
             $table->string('descricao');
             $table->float('valor_servico');
             $table->date('data');
+            $table->integer('pagamento');
+            $table->integer('valor_total');
             $table->integer('carro_id')->unsigned();
             $table->integer('situacao');
             $table->timestamps();

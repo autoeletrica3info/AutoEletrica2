@@ -87,6 +87,8 @@ Route::delete('/atendimento/produto/{id}/{id2}', 'atendimentoProdutoController@d
 //Route::get('/create/produto','produtosController@create');
 //Route::post('/cadastro/produto', 'produtosController@store');
 
+Route::put('pagar/{id}', 'atendimentoController@pagamento');
+
 });
 //php artisan key:generate
 //composer dump-autoload

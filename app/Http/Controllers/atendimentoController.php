@@ -105,11 +105,14 @@ public function store(Request $request)
     //se passou pelas validações, explode request e coloca em um array...
 
     //se passou pelos array, processa e salva no banco...
+    $total =0;
     $obj_Atendimento = new atendimento();
     $obj_Atendimento->descricao = $request['descricao'];
     $obj_Atendimento->data = $request['data_atendimento'];
     $obj_Atendimento->carro_id = $request['CBcarro'];
     $obj_Atendimento->situacao = $request['situacao'];
+    $obj_Atendimento->valor_total = $total;
+    $obj_Atendimento->pagamento = 2;
     $obj_Atendimento->valor_servico = $request['valor_servico'];
     $obj_Atendimento->save();
    /* $obj_AtendimentoProduto = new atendimento_produto();
@@ -151,21 +154,17 @@ public function edit($id)
         //vetor com as mensagens de erro
         $messages = array(
         'descricao.required' => 'É obrigatório uma descricao para o atendimento',
-        'valor_total.required' => 'É obrigatório um calor para o atendimento',
         'valor_servico.required' => 'É obtigatório informar o valor do serviço',
         'data_atendimento.required' => 'É obrigatório uma data para o atendimento',
-        'produtos.required' => 'É obrigatório um produto para o atendimento',
-        'quantidade.required' => 'É obtigatório informar a quantidade do produto acima',
+        'situacao.required' => 'É obrigatório uma situação para o atendimento',
             
         );
         //vetor com as especificações de validações
         $regras = array(
-            'descricao' => 'required|string|max:255',
-        'valor_total' => 'required',
+        'descricao' => 'required|string|max:255',
         'data_atendimento' => 'required',
-        'produtos' => 'required',
-        'quantidade' => 'required',
         'valor_servico' => 'required',
+        'situacao' => 'required',
             
         );
         //cria o objeto com as regras de validação
@@ -177,9 +176,6 @@ public function edit($id)
             ->withInput($request->all);
         }
         //se passou pelas validações, processa e salva no banco...
-        $resultEX = explode(':', $request['produtos']);
-        $produto = $resultEX[0];
-        $preco_unitario = $resultEX[1];
 
     $obj_Atendimento = atendimento::findOrFail($id);
     $obj_Atendimento->descricao = $request['descricao'];
@@ -188,15 +184,7 @@ public function edit($id)
     $obj_Atendimento->situacao = $request['situacao'];
     $obj_Atendimento->valor_servico = $request['valor_servico'];
     $obj_Atendimento->save();
-    $obj_AtendimentoProduto = atendimento_produto::where('atendimento_id',$id)->get();
-    
-    //dd($obj_AtendimentoProduto);
 
-    $obj_AtendimentoProduto->produto_id = $produto;
-    $obj_AtendimentoProduto->quantidade = $request['quantidade'];
-    $obj_AtendimentoProduto->preco_unitario = $preco_unitario;
-    $obj_AtendimentoProduto->atendimento_id = $obj_Atendimento->id;
-    $obj_AtendimentoProduto->save();
         return redirect('/mostrar/atendimento')->with('success', 'Atendimento atualizada com sucesso!!');
     }
 
@@ -213,5 +201,43 @@ public function edit($id)
         $obj_Atendimento_Produto = atendimento_produto::where('atendimento_id', $id)->where('produto_id', $id_produto);
         $obj_Atendimento->delete($id);
         return Redirect('/mostrar/carro')->with('sucess', 'Atividade excluída com Sucesso!');
+    }
+
+    public function pagamento(Request $request,  $id)
+    {
+       //faço as validações dos campos
+        //vetor com as mensagens de erro
+        $messages = array(
+
+            'valor_tot.required' => 'É obrigatório uma situação para o atendimento',
+                
+            );
+            //vetor com as especificações de validações
+            $regras = array(
+            'valor_tot' => 'required',
+                
+            );
+            //cria o objeto com as regras de validação
+            $validador = Validator::make($request->all(), $regras, $messages);
+            //executa as validações
+            if ($validador->fails()) {
+                return redirect("editar/atendimento/$id")
+                ->withErrors($validador)
+                ->withInput($request->all);
+            }
+            //se passou pelas validações, processa e salva no banco...
+    
+            $pago = 2;
+            $obj_Atendimento = atendimento::findOrFail($id);
+            $obj_Atendimento->pagamento = $pago;
+            $obj_Atendimento->valor_total = $request['valor_tot'];
+            $obj_Atendimento->save();
+    
+            return redirect('/mostrar/atendimento')->with('success', 'Atendimento atualizada com sucesso!!');
+        
+    
+           
+        
+        
     }
 }

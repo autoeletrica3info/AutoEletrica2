@@ -17,6 +17,7 @@ class AddAtendimentoProdutoTable extends Migration
             $table->integer('produto_id')->unsigned();
             $table->integer('quantidade');
             $table->float('preco_unitario');
+            $table->float('valor_final');
             $table->integer('atendimento_id')->unsigned();
             $table->timestamps();
         });

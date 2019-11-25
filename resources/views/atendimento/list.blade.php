@@ -22,6 +22,7 @@
       <th style="font-size:30px" scope="col">Situação</th>
       <th style="font-size:30px" scope="col">Editar</th>
       <th style="font-size:30px" scope="col">Excluir</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -37,6 +38,7 @@
                                  @elseif ($row->situacao == 3) Em espera @endif</td>
       <td style="font-size:30px"><a href="/editar/atendimento/{{$row->id}}"><img src="/image/editar.png" height="20" width="20"></a></td>
       <td style="font-size:30px"><a href="/excluir/atendimento/{{$row->id}}"><img src="/image/excluir.png"  height="20" width="20"></a></td>
+     
     </tr>
   @endforeach
   
