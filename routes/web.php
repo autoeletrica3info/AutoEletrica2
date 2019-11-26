@@ -91,6 +91,8 @@ Route::get('/excluir/carro/{id}', 'carroController@delete');
 Route::delete('/carro/{id}', 'carroController@destroy');
 Route::get('/excluir/fornecedor/{id}', 'fornecedorController@delete');
 Route::delete('/fornecedor/{id}', 'fornecedorController@destroy');
+Route::get('/excluir/atendimento/{id}', 'atendimentoController@delete');
+Route::delete('/atendimento/{id}', 'atendimentoController@destroy');
 Route::get('/excluir/atendimento/produto/{id}/{id2}', 'atendimentoProdutoController@delete');
 Route::delete('/atendimento/produto/{id}/{id2}', 'atendimentoProdutoController@destroy');
 Route::get('/excluir/compra/produto/{id}/{id2}', 'compraProdutoController@delete');

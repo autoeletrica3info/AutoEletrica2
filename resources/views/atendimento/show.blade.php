@@ -32,7 +32,7 @@
       <th style="font-size:30px" scope="col">Quantidade</th>
       <th style="font-size:30px" scope="col">Valor Unitário</th>
       <th style="font-size:30px" scope="col">Valor Final</th>
-      <th style="font-size:30px" scope="col">Editar</th>
+      <!--<th style="font-size:30px" scope="col">Editar</th>-->
       <th style="font-size:30px" scope="col">Excluir</th>
       
     </tr>
@@ -46,7 +46,7 @@
       <td style="font-size:30px">{{$row->quantidade}}</td>
       <td style="font-size:30px">{{$row->preco_unitario}}</td>
       <td style="font-size:30px" class="valor_calculado">{{$row->valor_final}}</td>
-      <td style="font-size:30px"><a href="/editar/atendimento/produto/{{$row->produto_id}}/{{$row->atendimento_id}}"><img src="/image/editar.png" height="20" width="20"></a></td>
+     <!-- <td style="font-size:30px"><a href="/editar/atendimento/produto/{{$row->produto_id}}/{{$row->atendimento_id}}"><img src="/image/editar.png" height="20" width="20"></a></td>-->
       <td style="font-size:30px"><a href="/excluir/atendimento/produto/{{$row->produto_id}}/{{$row->atendimento_id}}"><img src="/image/excluir.png"  height="20" width="20"></a></td>
     </tr>
   @endforeach

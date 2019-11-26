@@ -192,14 +192,13 @@ public function edit($id)
     public function delete($id)
     {
         $obj_Atendimento = atendimento::find($id);
-        return view('atendimento.delete', ['atendimento' => $obj_Carro]);
+        return view('atendimento.delete', ['atendimento' => $obj_Atendimento]);
     }
     
     public function destroy($id)
     {
         $obj_Atendimento = atendimento::findOrFail($id);
-        $id_produto = $request['idProduto'];
-        $obj_Atendimento_Produto = atendimento_produto::where('atendimento_id', $id)->where('produto_id', $id_produto);
+        
         $obj_Atendimento->delete($id);
         return Redirect('/mostrar/carro')->with('sucess', 'Atividade excluída com Sucesso!');
     }

@@ -169,15 +169,15 @@ public function show($id)
 
     public function delete($id)
     {
-        //$obj_Atividade = Atividade::find($id);
-        //return view('atividade.delete', ['atividade' => $obj_Atividade]);
+        $obj_Compra = compra::find($id);
+        return view('compra.delete', ['compra' => $obj_Compra]);
     }
     
     public function destroy($id)
     {
-        //$obj_Atividade = Atividade::findOrFail($id);
-       // $obj_Atividade->delete($id);
-        //return Redirect('/atividades')->with('sucess', 'Atividade excluída com Sucesso!');
+        $obj_Compra = atendimento::findOrFail($id);
+        $obj_Compra->delete($id);
+        return Redirect('/mostrar/compra')->with('sucess', 'Compra excluída com Sucesso!');
     }
 
     public function pagamento(Request $request,  $id)

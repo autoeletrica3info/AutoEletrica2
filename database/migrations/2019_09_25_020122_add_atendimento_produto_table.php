@@ -23,7 +23,7 @@ class AddAtendimentoProdutoTable extends Migration
         });
         Schema::table('atendimento_produto', function($table){
             $table->foreign('produto_id')->references('id')->on('produto');
-            $table->foreign('atendimento_id')->references('id')->on('atendimento');
+            $table->foreign('atendimento_id')->references('id')->on('atendimento')->onDelete('cascade');
         });
     }
 

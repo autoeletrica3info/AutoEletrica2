@@ -191,14 +191,14 @@ public function edit($id)
 
     public function delete($id, $id2)
     {
-       $obj_AtendimentoProduto = atendimento_produto::where("produto_id", $id)->where("atendimento_id", $id2)->get()->first();
-       return view('atendimentoproduto.delete', ['result' => $obj_AtendimentoProduto]);
+       $obj_CompraProduto = compra_produto::where("produto_id", $id)->where("compra_id", $id2)->get()->first();
+       return view('compraproduto.delete', ['result' => $obj_CompraProduto]);
     }
     
     public function destroy($id, $id2)
     {
-        $obj_AtendimentoProduto = atendimento_produto::where('produto_id', $id)->where('atendimento_id', $id2);
-        $obj_AtendimentoProduto->delete($id, $id2);
-        return Redirect('/mostrar/atendimento')->with('sucess', 'Produto do Atendimento excluída com Sucesso!');
+        $obj_CompraProduto = compra_produto::where('produto_id', $id)->where('compra_id', $id2);
+        $obj_CompraProduto->delete($id, $id2);
+        return Redirect('/mostrar/compra')->with('sucess', 'Produto da Compra excluída com Sucesso!');
     }
 }
