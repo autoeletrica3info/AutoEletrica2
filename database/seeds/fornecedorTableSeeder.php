@@ -14,6 +14,7 @@ class fornecedorTableSeeder extends Seeder
         fornecedor::create([
             'nome_fornecedor' => 'Fornecedor1',
             'email' => 'pecas@pecas.com',
+            'telefone' => 54991558725,
             'endereco' => 'Av heraclides lima gomes, 2336',
             'uf' => 'RS',
             'cidade' => 'Boa Vista do Incra'
@@ -21,6 +22,7 @@ class fornecedorTableSeeder extends Seeder
         fornecedor::create([
             'nome_fornecedor' => 'Fornecedor2',
             'email' => 'pecasnovas@pecas.com',
+            'telefone' => 54991558725,
             'endereco' => 'Av heraclides lima gomes, 2336',
             'uf' => 'RS',
             'cidade' => 'Boa Vista do Incra'
@@ -28,6 +30,7 @@ class fornecedorTableSeeder extends Seeder
         fornecedor::create([
             'nome_fornecedor' => 'Fornecedor3',
             'email' => 'dsdsd@pecas.com',
+            'telefone' => 54991558725,
             'endereco' => 'Av heraclides lima gomes, 2336',
             'uf' => 'RS',
             'cidade' => 'Boa Vista do Incra'
@@ -35,6 +38,7 @@ class fornecedorTableSeeder extends Seeder
         fornecedor::create([
             'nome_fornecedor' => 'Fornecedor4',
             'email' => 'sdsadsa@pecas.com',
+            'telefone' => 54991558725,
             'endereco' => 'Av heraclides lima gomes, 2336',
             'uf' => 'RS',
             'cidade' => 'Boa Vista do Incra'

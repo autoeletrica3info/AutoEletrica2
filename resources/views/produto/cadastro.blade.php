@@ -59,14 +59,14 @@ CADASTRO DE PRODUTOS
   
   <label class="col-md-12 control-label" for="Preco_c">Preço Custo <h11>*</h11></label>  
   <div class="col-md-8">
-  <input type="tel" class="form-control input-md" required="required" maxlength="15" name="preco_custo" pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$">
+  <input type="float" class="form-control input-md" required="required" maxlength="15" name="preco_custo">
   </div>
 
   <br>
 
   <label class="col-md-12 control-label" for="Preco">Preço <h11>*</h11></label>  
   <div class="col-md-8">
-  <input type="tel" class="form-control input-md" required="required" maxlength="15" name="preco_unitario" pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$">
+  <input type="float" class="form-control input-md" required="required" maxlength="15" name="preco_unitario">
   </div>
 
   <br>

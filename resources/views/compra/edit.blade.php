@@ -30,19 +30,26 @@ EDIÇÃO DE COMPRAS
 </div>
 </div>
 
-<!-- Text input-->
 <div class="form-group">
-  <label class="col-md-2 control-label" for="Nome">Valor Total <h11>*</h11></label>  
-  <div class="col-md-8">
-  <input type="float" value="{{$compra->valor_total}}" required="required" maxlength="15" name="valor_total">
+<label class="col-md-12 control-label" for="Descricao">Descrição <h11>*</h11></label>  
+    <div class="col-md-5">
+    <input id="descricao" value="{{$compra->descricao}}" name="descricao" placeholder="" class="form-control input-md" required="" type="text">
+    </div>
+
+<!-- Text input-->
+<br>
+
+  <label class="col-md-12 control-label" for="Nome">Valor Total <h11>*</h11></label>  
+  <div class="col-md-5">
+  <input type="float" value="{{$compra->valor_total}}" id="valor_total" required="required" maxlength="15" name="valor_total">
   </div>
-</div>
+  <br>
 
 <!-- Prepended text-->
-<div class="form-group">
+
   <label class="col-md-2 control-label" for="Nome">Data <h11>*</h11></label>  
-  <div class="col-md-8">
-  <input id="data" value="{{$compra->dt_compra}}" name="data" placeholder="" class="form-control input-md" required="" type="date">
+  <div class="col-md-5">
+  <input id="data_compra" value="{{$compra->dt_compra}}" name="data_compra" placeholder="" class="form-control input-md" required="" type="date">
   </div>
 </div>
 
@@ -55,7 +62,7 @@ EDIÇÃO DE COMPRAS
 <div class="form-group">
   <label class="col-md-2 control-label" for="Cadastrar"></label>
   <div class="col-md-8">
-    <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Atualizar</button>
+    <button id="Atualizar" name="Cadastrar" class="btn btn-success" type="Submit">Atualizar</button>
     <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
   </div>
 </div>

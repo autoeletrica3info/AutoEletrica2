@@ -179,7 +179,7 @@ public function edit($id)
     $obj_Atendimento->save();
     $obj_AtendimentoProduto = atendimento_produto::where('atendimento_id',$id)->get();
     
-    //dd($obj_AtendimentoProduto);
+        //dd($obj_AtendimentoProduto);
 
     $obj_AtendimentoProduto->produto_id = $produto;
     $obj_AtendimentoProduto->quantidade = $request['quantidade'];

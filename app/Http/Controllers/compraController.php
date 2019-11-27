@@ -129,19 +129,18 @@ public function show($id)
         //faço as validações dos campos
         //vetor com as mensagens de erro
         $messages = array(
-            'valor_total.required' => 'É obrigatório um valor para a compra',
-        'data.required' => 'É obrigatório uma data para a compra',
-        'quantidade.required' => 'É obrigatória informar a quantidade do produto para a compra',
-        'produtos.required' => 'É obrigatória informar o produto para a compra',
+        'descricao.required' => 'É obrigatório uma descricao para a compra',
+        'valor_total.required' => 'É obrigatório um calor para a compra',
+        'data_compra.required' => 'É obrigatório uma data para a compra',
+    
             
         );
         //vetor com as especificações de validações
         $regras = array(
-            'valor_total' => 'required',
-            'data' => 'required',
-            'quantidade' => 'required',
-            'produtos' => 'required',
-    
+        'descricao' => 'required|string|max:255',
+        'valor_total' => 'required',
+        'data_compra' => 'required',
+        
             
         );
         //cria o objeto com as regras de validação
@@ -153,10 +152,13 @@ public function show($id)
             ->withInput($request->all);
         }
         //se passou pelas validações, processa e salva no banco...
-        $obj_Compra = compra::findOrFail($id);
-        $obj_Compra->valor_total = $request['valor_total'];
-        $obj_Compra->dt_compra = $request['data'];
-        $obj_Compra->save();
+
+    $obj_Compra = compra::findOrFail($id);
+    $obj_Compra->descricao = $request['descricao'];
+    $obj_Compra->valor_total = $request['valor_total'];
+    $obj_Compra->dt_compra = $request['data_compra'];
+    $obj_Compra->save();
+    
         return redirect('/mostrar/compra')->with('success', 'Compra atualizada com sucesso!!');
     }
 

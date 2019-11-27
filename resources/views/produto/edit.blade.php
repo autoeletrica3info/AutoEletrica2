@@ -30,21 +30,21 @@ CADASTRO DE PRODUTOS
 
   <label class="col-md-12 control-label" for="Nome">Nome <h11>*</h11></label>  
   <div class="col-md-8">
-  <input id="nome" name="nome" placeholder="" class="form-control input-md" required="" type="text">
+  <input id="nome" name="nome" value="{{$produto->nome}}" placeholder="" class="form-control input-md" required="" type="text">
   </div>
 
   <br>
 
   <label class="col-md-12 control-label" for="Marca">Marca <h11>*</h11></label>  
   <div class="col-md-8">
-  <input id="marca" name="marca" placeholder="" class="form-control input-md" required="" type="text">
+  <input id="marca" name="marca" value="{{$produto->marca}}" placeholder="" class="form-control input-md" required="" type="text">
   </div>
 
   <br>
 
   <label class="col-md-12 control-label" for="Categoria">Categoria <h11>*</h11></label>  
   <div class="col-md-8">
-  <input id="categoria" name="categoria" placeholder="" class="form-control input-md" required="" type="text">
+  <input id="categoria" name="categoria" value="{{$produto->categoria}}" placeholder="" class="form-control input-md" required="" type="text">
   </div>
 
     <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
@@ -60,14 +60,14 @@ CADASTRO DE PRODUTOS
   
   <label class="col-md-12 control-label" for="Preco_c">Preço Custo <h11>*</h11></label>  
   <div class="col-md-8">
-  <input type="float" class="form-control input-md" required="required" maxlength="15" name="preco_custo">
+  <input type="float" value="{{$produto->preco_custo}}" class="form-control input-md" required="required" maxlength="15" name="preco_custo">
   </div>
 
   <br>
 
   <label class="col-md-12 control-label" for="Preco">Preço <h11>*</h11></label>  
   <div class="col-md-8">
-  <input type="float" class="form-control input-md" required="required" maxlength="15" name="preco_unitario">
+  <input type="float" value="{{$produto->preco_unitario}}" class="form-control input-md" required="required" maxlength="15" name="preco_unitario">
   </div>
 
   <br>

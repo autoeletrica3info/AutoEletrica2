@@ -23,7 +23,7 @@ class fornecedorController extends Controller
  
 public function create()
 {
-    return view('fornecedor.cadastro');
+    //return view('fornecedor.cadastro');
 }
 /**
  * Store a newly created resource in storage.
@@ -45,6 +45,7 @@ public function store(Request $request)
     $messages = array(
         'nome.required' => 'É obrigatório um nome para o fornecedor',
         'email.required' => 'É obrigatório um email para o fornecedor',
+        'telefone.required' => 'É obrigatório um telefone para o fornecedor',
         'endereço.required' => 'É obrigatório o endereço do fornecedor',
         'uf.required' => 'É obrigatório um estado para o fornecedor',
         'cidade.required' => 'É obrigatória uma cidade para o fornecedor',
@@ -55,6 +56,7 @@ public function store(Request $request)
         'email' => 'required',
         'endereço' => 'required|string',
         'uf' => 'required|string',
+        'telefone' => 'required',
         'cidade' => 'required|string',
     );
     //cria o objeto com as regras de validação
@@ -67,10 +69,11 @@ public function store(Request $request)
     }
     //se passou pelas validações, processa e salva no banco...
     $obj_Fornecedor = new fornecedor();
-    $obj_Fornecedor->nome_fornecedor =       $request['nome'];
+    $obj_Fornecedor->nome_fornecedor = $request['nome'];
     $obj_Fornecedor->email = $request['email'];
     $obj_Fornecedor->endereco = $request['endereço'];
     $obj_Fornecedor->uf     = $request['uf'];
+    $obj_Fornecedor->telefone = $request['telefone'];
     $obj_Fornecedor->cidade     = $request['cidade'];
     $obj_Fornecedor->save();
     return redirect('/mostrar/fornecedor')->with('success', 'Fornecedor criado com sucesso!!');

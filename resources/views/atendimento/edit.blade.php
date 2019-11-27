@@ -57,7 +57,7 @@ EDIÇÃO DE ATENDIMENTOS
 
   <label class="col-md-8 control-label" for="descricao">Descricao <h11>*</h11></label>  
     <div class="col-md-8">
-      <input id="descricao" name="descricao" placeholder="" class="form-control input-md" required="" type="text">
+      <input id="descricao" value="{{$atendimento->descricao}}" name="descricao" placeholder="" class="form-control input-md" required="" type="text">
     </div>
 
   <br>
@@ -65,7 +65,7 @@ EDIÇÃO DE ATENDIMENTOS
 
     <label class="col-md-8 control-label" for="data_atendimento">Data <h11>*</h11></label>  
     <div class="col-md-8">
-      <input id="data_atendimento" name="data_atendimento" placeholder="" class="form-control input-md" required="" type="date">
+      <input id="data_atendimento" value="{{$atendimento->data}}" name="data_atendimento" placeholder="" class="form-control input-md" required="" type="date">
     </div>
  
 
@@ -75,7 +75,7 @@ EDIÇÃO DE ATENDIMENTOS
   <label class="col-md-8 control-label" for="data_atendimento">Carro <h11>*</h11></label>
   <div class="col-md-8">
     <select required id="CBcarro" name="CBcarro" class="form-control">
-    <option value="">Escolha uma placa</option>
+    <option value="{{$atendimento->carro_id}}">Escolha uma placa</option>
     @foreach($carro as $c)
       <option value="{{$c->id}}">{{$c->placa}}</option>
     @endforeach
@@ -96,7 +96,7 @@ EDIÇÃO DE ATENDIMENTOS
 
       <label class="col-md-8 control-label" for="valor_total">Valor Serviço <h11>*</h11></label>  
       <div class="col-md-8">
-        <input id="valor_servico" name="valor_servico" placeholder="" class="form-control input-md" required="" type="float">
+        <input id="valor_servico" value="{{$atendimento->valor_servico}}" name="valor_servico" placeholder="" class="form-control input-md" required="" type="float">
       </div>
       
       <br>

@@ -39,8 +39,7 @@ CADASTRO DE FORNECEDORES
 
   <label class="col-md-12 control-label" for="prependedtext">Telefone <h11>*</h11></label>
   <div class="col-md-8">
-    <input id="prependedtext" name="prependedtext" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
-    OnKeyPress="formatar('## #####-####', this)">
+    <input id="telefone" name="telefone" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" OnKeyPress="formatar('## #####-####', this)">
   </div>
 
   <br>
