@@ -25,6 +25,11 @@ public function create()
 {
     //return view('fornecedor.cadastro');
 }
+public function show($id)
+    {
+        $fornecedor = fornecedor::where("id",$id)->get()->first();
+        return view('fornecedor.show', ['fornecedor' => $fornecedor]);
+    }
 /**
  * Store a newly created resource in storage.
  *

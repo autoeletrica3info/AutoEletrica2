@@ -9,7 +9,7 @@
 @section('conteudo')
 
 
-<h1>Compra  {{$produto->id}}</h1>
+<h1>Produto  {{$produto->id}}</h1>
 
 <hr>
 <br>
