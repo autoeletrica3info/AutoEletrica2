@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 use App\atendimento;
 use Illuminate\Support\Collection;
 use Carbon\Carbon;
-
 class HomeController extends Controller
 {
     /**
