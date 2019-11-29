@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\atendimento;
 use App\carro;
+use Dompdf\Dompdf;
 use App\produto;
 use App\atendimento_produto;
 use Illuminate\Http\Request;
@@ -27,6 +28,28 @@ class atendimentoController extends Controller
         
         
         
+       }
+
+      
+
+       public function downloadPDF()
+       {
+        
+        //$dompdf = new Dompdf();
+        $result = DB::table('atendimento')
+        ->join('carro', 'carro.id', '=', 'atendimento.carro_id')
+        ->select('carro.placa', 'atendimento.*')
+        ->get();
+        
+        $date = date('j M Y H:i:s');
+        $view =  \View::make('atendimento.gerarPDF', compact('result', 'date'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->setPaper('A4', 'landscape');
+        
+        $pdf->loadHTML($view);
+        return $pdf->stream('invoice');
+        
+   
        }
 
 

@@ -10,10 +10,10 @@ Formulário de Exclusão de Carros
     {{ csrf_field() }}
     {{ method_field('DELETE') }}
     <p style="font-size: 32px">Deseja mesmo excluir {{$carro->placa}} ?</p>
-    <button class="btn btn-danger" type="submit">Deleter</button>
+    <button class="btn btn-danger" type="submit">Deletar</button>
 </form>
 <br>
 <br>
 <br>
-<a href="/mostrar/atividades/">Mostar Mensagem</a>
+<a href="/mostrar/carro/">Mostar Carros</a>
 @stop

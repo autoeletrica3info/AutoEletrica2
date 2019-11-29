@@ -18,6 +18,7 @@ class AddFornecedorTable extends Migration
             $table->string('nome_fornecedor');
             $table->string('endereco');
             $table->integer('telefone');
+            $table->string('pais');
             $table->string('uf');
             $table->string('email')->unique();
             $table->string('cidade');

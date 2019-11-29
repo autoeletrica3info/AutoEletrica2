@@ -66,6 +66,13 @@ CADASTRO DE FORNECEDORES
 
   <br>
 
+  <label class="col-md-12 control-label" for="prependedtext">País </label>
+  <div class="col-md-8">
+    <input id="pais" name="pais" class="form-control" placeholder="" required="" type="text">
+  </div>
+
+  <br>
+
   <label class="col-md-12 control-label" for="prependedtext">Cidade </label>
   <div class="col-md-8">
     <input id="cidade" name="cidade" class="form-control" placeholder="" required=""   type="text">

@@ -44,6 +44,7 @@
      
     </tr>
   @endforeach
+  <a href="/atendimento/pdf">GERAR PDF</a>
   
   </tbody>
 </table>

@@ -58,7 +58,7 @@ ADIÇÃO DE PRODUTOS
     <label class="col-md-8 control-label" for="produtos">Atendimentos <h11>*</h11></label>  
   <div class="col-md-8">
     <select required  id="atendimento" name="atendimento" class="form-control">
-      <option value="">Escolha o produto</option>
+      <option value="">Escolha o atendimento</option>
       @foreach($atendimento as $a)
       <option value="{{$a->id}}" >{{$a->descricao}}</option>
       @endforeach
@@ -101,7 +101,7 @@ ADIÇÃO DE PRODUTOS
   <label class="col-md-2 control-label" for=""></label>  
   <div class="col-md-8">
   <div class="form-group">
-    <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
+    <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Adicionar</button>
     <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
 </div>
   </div>

@@ -18,6 +18,7 @@
       <th style="font-size:30px" scope="col">Nome</th>
       <th style="font-size:30px" scope="col">E-mail</th>
       <th style="font-size:30px" scope="col">Endereço</th>
+      <th style="font-size:30px" scope="col">País</th>
       <th style="font-size:30px" scope="col">UF</th>
       <th style="font-size:30px" scope="col">Cidade</th>
       <th style="font-size:30px" scope="col">Editar</th>
@@ -31,6 +32,7 @@
       <td style="font-size:30px">{{$forn->nome_fornecedor}}</td>
       <td style="font-size:30px">{{$forn->email}}</td>
       <td style="font-size:30px">{{$forn->endereco}}</td>
+      <td style="font-size:30px">{{$forn->pais}}</td>
       <td style="font-size:30px">{{$forn->uf}}</td>
       <td style="font-size:30px">{{$forn->cidade}}</td>
       <td style="font-size:30px"><a href="/editar/fornecedor/{{$forn->id}}"><img src="/image/editar.png" height="20" width="20"></a></td>
@@ -39,5 +41,6 @@
   @endforeach
   
   </tbody>
+  <a href="/fornecedor/pdf">GERAR PDF</a>
 </table>
 @stop

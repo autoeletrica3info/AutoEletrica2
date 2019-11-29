@@ -37,5 +37,6 @@
   @endforeach
   
   </tbody>
+  <a href="/carro/pdf">GERAR PDF</a>
 </table>
 @stop

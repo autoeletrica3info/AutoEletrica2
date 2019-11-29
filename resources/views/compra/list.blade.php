@@ -38,5 +38,6 @@
   @endforeach
   
   </tbody>
+  <a href="/compra/pdf">GERAR PDF</a>
 </table>
 @stop

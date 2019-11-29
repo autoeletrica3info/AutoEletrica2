@@ -16,6 +16,16 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+//PDF
+Route::get('/atendimento/pdf','PDFController@atendimentoPDF');
+Route::get('/carro/pdf','PDFController@carroPDF');
+Route::get('/produto/pdf','PDFController@produtoPDF');
+Route::get('/fornecedor/pdf','PDFController@fornecedorPDF');
+Route::get('/compra/pdf','PDFController@compraPDF');
+
+
+
+
 //MOSTAR
 Route::get('/mostrar/fornecedor', 'fornecedorController@index');
 Route::get('/mostrar/carro', 'carroController@index');

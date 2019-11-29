@@ -52,6 +52,7 @@ public function store(Request $request)
         'email.required' => 'É obrigatório um email para o fornecedor',
         'telefone.required' => 'É obrigatório um telefone para o fornecedor',
         'endereço.required' => 'É obrigatório o endereço do fornecedor',
+        'pais.required' => 'É obrigatório o endereço do fornecedor',
         'uf.required' => 'É obrigatório um estado para o fornecedor',
         'cidade.required' => 'É obrigatória uma cidade para o fornecedor',
     );
@@ -60,6 +61,7 @@ public function store(Request $request)
         'nome' => 'required|string|max:255',
         'email' => 'required',
         'endereço' => 'required|string',
+        'pais' => 'required|string',
         'uf' => 'required|string',
         'telefone' => 'required',
         'cidade' => 'required|string',
@@ -77,6 +79,7 @@ public function store(Request $request)
     $obj_Fornecedor->nome_fornecedor = $request['nome'];
     $obj_Fornecedor->email = $request['email'];
     $obj_Fornecedor->endereco = $request['endereço'];
+    $obj_Fornecedor->pais = $request['pais'];
     $obj_Fornecedor->uf     = $request['uf'];
     $obj_Fornecedor->telefone = $request['telefone'];
     $obj_Fornecedor->cidade     = $request['cidade'];
@@ -105,7 +108,9 @@ public function edit($id)
             'nome.required' => 'É obrigatório um nome para o fornecedor',
             'email.required' => 'É obrigatório um email para o fornecedor',
             'endereço.required' => 'É obrigatório o endereço do fornecedor',
+            'pais.required' => 'É obrigatório o endereço do fornecedor',
             'uf.required' => 'É obrigatório um estado para o fornecedor',
+            'pais' => 'required|string',
             'cidade.required' => 'É obrigatória uma cidade para o fornecedor',
             
         );
@@ -132,6 +137,7 @@ public function edit($id)
     $obj_Fornecedor->nome_fornecedor =       $request['nome'];
     $obj_Fornecedor->email = $request['email'];
     $obj_Fornecedor->endereco = $request['endereço'];
+    $obj_Fornecedor->pais = $request['pais'];
     $obj_Fornecedor->uf     = $request['uf'];
     $obj_Fornecedor->cidade     = $request['cidade'];
     $obj_Fornecedor->save();

@@ -16,6 +16,7 @@ class fornecedorTableSeeder extends Seeder
             'email' => 'pecas@pecas.com',
             'telefone' => 54991558725,
             'endereco' => 'Av heraclides lima gomes, 2336',
+            'pais' => 'Brasil',
             'uf' => 'RS',
             'cidade' => 'Boa Vista do Incra'
                 ]);
@@ -24,6 +25,7 @@ class fornecedorTableSeeder extends Seeder
             'email' => 'pecasnovas@pecas.com',
             'telefone' => 54991558725,
             'endereco' => 'Av heraclides lima gomes, 2336',
+            'pais' => 'Brasil',
             'uf' => 'RS',
             'cidade' => 'Boa Vista do Incra'
                 ]);
@@ -32,6 +34,7 @@ class fornecedorTableSeeder extends Seeder
             'email' => 'dsdsd@pecas.com',
             'telefone' => 54991558725,
             'endereco' => 'Av heraclides lima gomes, 2336',
+            'pais' => 'Brasil',
             'uf' => 'RS',
             'cidade' => 'Boa Vista do Incra'
                 ]);
@@ -40,6 +43,7 @@ class fornecedorTableSeeder extends Seeder
             'email' => 'sdsadsa@pecas.com',
             'telefone' => 54991558725,
             'endereco' => 'Av heraclides lima gomes, 2336',
+            'pais' => 'Brasil',
             'uf' => 'RS',
             'cidade' => 'Boa Vista do Incra'
                 ]);
