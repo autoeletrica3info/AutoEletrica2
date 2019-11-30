@@ -21,7 +21,7 @@ Route::post('/atendimento/pdf','PDFController@atendimentoPDF');
 Route::get('/carro/pdf','PDFController@carroPDF');
 Route::get('/produto/pdf','PDFController@produtoPDF');
 Route::get('/fornecedor/pdf','PDFController@fornecedorPDF');
-Route::get('/compra/pdf','PDFController@compraPDF');
+Route::post('/compra/pdf','PDFController@compraPDF');
 
 
 
