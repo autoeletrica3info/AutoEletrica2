@@ -22,8 +22,11 @@ class AddAtendimentoProdutoTable extends Migration
             $table->timestamps();
         });
         Schema::table('atendimento_produto', function($table){
-            $table->foreign('produto_id')->references('id')->on('produto');
-            $table->foreign('atendimento_id')->references('id')->on('atendimento')->onDelete('cascade');
+            $table->index(['produto_id', 'atendimento_id']);
+        });
+        Schema::table('atendimento_produto', function($table){
+            $table->foreign('produto_id')->references('id')->on('produto')->onDelete("cascade");
+            $table->foreign('atendimento_id')->references('id')->on('atendimento')->onDelete('cascade')->onDelete("cascade");
         });
     }
 

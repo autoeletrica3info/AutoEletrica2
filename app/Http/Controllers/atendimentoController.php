@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\MessageBag;
 
 
 
@@ -31,26 +32,6 @@ class atendimentoController extends Controller
        }
 
       
-
-       public function downloadPDF()
-       {
-        
-        //$dompdf = new Dompdf();
-        $result = DB::table('atendimento')
-        ->join('carro', 'carro.id', '=', 'atendimento.carro_id')
-        ->select('carro.placa', 'atendimento.*')
-        ->get();
-        
-        $date = date('j M Y H:i:s');
-        $view =  \View::make('atendimento.gerarPDF', compact('result', 'date'))->render();
-        $pdf = \App::make('dompdf.wrapper');
-        $pdf->setPaper('A4', 'landscape');
-        
-        $pdf->loadHTML($view);
-        return $pdf->stream('invoice');
-        
-   
-       }
 
 
 public function cadastro(){
@@ -212,8 +193,25 @@ public function edit($id)
         return redirect('/mostrar/atendimento')->with('success', 'Atendimento atualizada com sucesso!!');
     }
 
+    public function verificar($id)
+    {   
+        $atendimentoProduto = atendimento_produto::where("atendimento_id",$id)->get();
+        //dd($atendimentoProduto);
+        $mostrar="/mostrar/atendimento/".$id;
+        $excluir="/excluir/atendimento/".$id;
+        
+
+        if(!$atendimentoProduto->isEmpty()){
+            return Redirect($mostrar)->with('success', 'Exclua os produtos relacionados!!');
+
+        } else{
+            return Redirect($excluir);
+        }
+    }
+
     public function delete($id)
-    {
+    {   
+        
         $obj_Atendimento = atendimento::find($id);
         return view('atendimento.delete', ['atendimento' => $obj_Atendimento]);
     }
@@ -223,7 +221,7 @@ public function edit($id)
         $obj_Atendimento = atendimento::findOrFail($id);
         
         $obj_Atendimento->delete($id);
-        return Redirect('/mostrar/carro')->with('sucess', 'Atividade excluída com Sucesso!');
+        return Redirect('/mostrar/atendimento')->with('sucess', 'Atividade excluída com Sucesso!');
     }
 
     public function pagamento(Request $request,  $id)

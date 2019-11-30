@@ -33,7 +33,7 @@
       <td style="font-size:30px"> @if($comp->pagamento == 1) Não Pago 
                                   @elseif ($comp->pagamento == 2) Pago @endif</td>
       <td style="font-size:30px"><a href="/editar/compra/{{$comp->id}}"><img src="/image/editar.png" height="20" width="20"></a></td>
-      <td style="font-size:30px"><a href="/excluir/compra/{{$comp->id}}"><img src="/image/excluir.png"  height="20" width="20"></a></td>
+      <td style="font-size:30px"><a href="/verificar/compra/{{$comp->id}}"><img src="/image/excluir.png"  height="20" width="20"></a></td>
     </tr>
   @endforeach
   

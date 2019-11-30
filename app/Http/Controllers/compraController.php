@@ -169,6 +169,22 @@ public function show($id)
      * @return \Illuminate\Http\Response
      */
 
+    public function verificar($id)
+    {   
+        $compraProduto = compra_produto::where("compra_id",$id)->get();
+        //dd($atendimentoProduto);
+        $mostrar="/mostrar/compra/".$id;
+        $excluir="/excluir/compra/".$id;
+        
+
+        if(!$compraProduto->isEmpty()){
+            return Redirect($mostrar)->with('success', 'Exclua os produtos relacionados!!');
+
+        } else{
+            return Redirect($excluir);
+        }
+    }
+
     public function delete($id)
     {
         $obj_Compra = compra::find($id);
@@ -177,7 +193,7 @@ public function show($id)
     
     public function destroy($id)
     {
-        $obj_Compra = atendimento::findOrFail($id);
+        $obj_Compra = compra::findOrFail($id);
         $obj_Compra->delete($id);
         return Redirect('/mostrar/compra')->with('sucess', 'Compra excluída com Sucesso!');
     }

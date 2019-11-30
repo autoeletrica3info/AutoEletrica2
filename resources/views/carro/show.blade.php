@@ -8,7 +8,6 @@
 
 @section('conteudo')
 
-
 <h1>Compra  {{$carro->id}}</h1>
 
 <hr>
