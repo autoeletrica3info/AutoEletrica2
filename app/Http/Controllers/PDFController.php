@@ -19,14 +19,19 @@ use Illuminate\Support\Facades\DB;
 class PDFController extends Controller
 {
    
-       public function atendimentoPDF(){
+       public function atendimentoPDF(Request $request){
+       
+       $id = $request['opcao'];
+       $inicio = $request['dateStart'];
+       $fim = $request['dateEnd'];
+       print_r($inicio);
         
-        //$dompdf = new Dompdf();
+       if($id == 1){
         $result = DB::table('atendimento')
         ->join('carro', 'carro.id', '=', 'atendimento.carro_id')
         ->select('carro.placa', 'atendimento.*')
         ->get();
-        
+
         $date = date('j M Y H:i:s');
         $view =  \View::make('atendimento.gerarPDF', compact('result', 'date'))->render();
         $pdf = \App::make('dompdf.wrapper');
@@ -34,6 +39,28 @@ class PDFController extends Controller
         
         $pdf->loadHTML($view);
         return $pdf->stream('RelatorioAtendimentos');
+       }
+       else if($id == 2){
+       $start= date($inicio, time()); 
+       $end= date($fim, time());
+       
+        $result = DB::table('atendimento')
+        ->whereBetween('data', array($start, $end))
+        ->join('carro', 'carro.id', '=', 'atendimento.carro_id')
+        ->select('carro.placa', 'atendimento.*')
+        ->get();
+
+        $date = date('j M Y H:i:s');
+        $view =  \View::make('atendimento.gerarPDF', compact('result', 'date'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->setPaper('A4', 'landscape');
+        
+        $pdf->loadHTML($view);
+        return $pdf->stream('RelatorioAtendimentos');
+       }
+
+        
+       
         
    
        }

@@ -91,6 +91,7 @@ table.greyGridTable tfoot td {
 <th></th>
 <th></th>
 <th></th>
+<th></th>
 <th>Data de Impressão:</th>
 <th>{{$date}}</th>
 </tr>
@@ -104,12 +105,14 @@ table.greyGridTable tfoot td {
 <th>#</th>
 <th>#</th>
 <th>#</th>
+<th>#</th>
 </tr>
 </thead>
 <thead>
 <tr>
 <th>#</</th>
 <th>Descricao</th>
+<th>Data</th>
 <th>Valor do Serviço</th>
 <th>Valor Pago</th>
 <th>Placa do Carro</th>
@@ -122,6 +125,7 @@ table.greyGridTable tfoot td {
 <tr>
 <th  scope="row">{{$row->id}}</th>
       <td >{{$row->descricao}}</td>
+      <td >{{$row->data}}</td>
       <td >R$ {{$row->valor_servico}}</td>
       <td >R$ {{$row->valor_total}}</td>
       <td >{{$row->placa}}</td>

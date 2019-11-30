@@ -23,6 +23,7 @@ class AddAtendimentoTable extends Migration
             $table->integer('carro_id')->unsigned();
             $table->integer('situacao');
             $table->timestamps();
+            $table->onDelete('cascade');
         });
         Schema::table('atendimento', function($table){
             $table->foreign('carro_id')->references('id')->on('carro');

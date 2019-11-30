@@ -17,7 +17,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //PDF
-Route::get('/atendimento/pdf','PDFController@atendimentoPDF');
+Route::post('/atendimento/pdf','PDFController@atendimentoPDF');
 Route::get('/carro/pdf','PDFController@carroPDF');
 Route::get('/produto/pdf','PDFController@produtoPDF');
 Route::get('/fornecedor/pdf','PDFController@fornecedorPDF');

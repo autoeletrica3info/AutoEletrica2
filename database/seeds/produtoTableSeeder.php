@@ -40,5 +40,6 @@ class produtoTableSeeder extends Seeder
             'fornecedor_id' => 1
 
         ]);
+        
     }
 }
