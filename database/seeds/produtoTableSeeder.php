@@ -12,7 +12,7 @@ class produtoTableSeeder extends Seeder
      */
     public function run()
     {
-        produto::create([
+       /* produto::create([
             'nome' => 'Aruela',
             'marca' => 'Brastemp',
             'categoria' => 'metal',
@@ -39,7 +39,7 @@ class produtoTableSeeder extends Seeder
             'preco_unitario' => 20.00,
             'fornecedor_id' => 1
 
-        ]);
+        ]);*/
         
     }
 }

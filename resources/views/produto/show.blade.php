@@ -3,7 +3,7 @@
 
 @section('href')
 
-  <a style="font-size:22px;" href="/mostrar/produto/">VOLTAR</a>
+  <a class="btn btn-dark" href="/mostrar/produto/">VOLTAR</a>
 @stop
 
 @section('conteudo')
@@ -22,3 +22,11 @@
 <h3><b>ID Fornecedor:   </b>{{$produto->fornecedor_id}}</h3>
 <h3><b>Atualizada em:   </b>{{$produto->updated_at}}</h3>
 @stop
+
+<script>
+  var msg = '{{Session::get('success')}}';
+  var exist = '{{Session::has('success')}}';
+  if(exist){
+    alert(msg);
+  }
+</script>

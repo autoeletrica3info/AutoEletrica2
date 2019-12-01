@@ -3,10 +3,11 @@
 
 @section('href')
 
-  <a style="font-size:22px;" href="/mostrar/atendimento/">VOLTAR</a>
+  <a class="btn btn-dark" href="/mostrar/atendimento/">VOLTAR</a>
 @stop
 
 @section('conteudo')
+
 
 
 <h1>Atendimento  {{$atendimento->id}}</h1>
@@ -84,10 +85,15 @@
 </fieldset>
 </form>
 <script>
+  var msg = '{{Session::get('success')}}';
+  var exist = '{{Session::has('success')}}';
+  if(exist){
+    alert(msg);
+  }
+
+
 function funcao1()
 {
-
-
 var valorCalculado = 0;
 var final = 0;
 var servico = $('.servico').val();

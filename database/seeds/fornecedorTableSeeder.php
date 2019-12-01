@@ -11,7 +11,7 @@ class fornecedorTableSeeder extends Seeder
      */
     public function run()
     {
-        fornecedor::create([
+        /*fornecedor::create([
             'nome_fornecedor' => 'Fornecedor1',
             'email' => 'pecas@pecas.com',
             'telefone' => 54991558725,
@@ -46,13 +46,7 @@ class fornecedorTableSeeder extends Seeder
             'pais' => 'Brasil',
             'uf' => 'RS',
             'cidade' => 'Boa Vista do Incra'
-                ]);
-                /*
-                $table->string('nome');
-                $table->string('email')->unique();
-                $table->string('endereço');
-                $table->string('uf');
-                $table->string('cidade');
-                */    
+                ]);*/
+                 
     }
 }

@@ -202,7 +202,7 @@ public function edit($id)
         
 
         if(!$atendimentoProduto->isEmpty()){
-            return Redirect($mostrar)->with('success', 'Exclua os produtos relacionados!!');
+            return Redirect($mostrar)->with('success', 'É necessário deletar os produtos referenciados!');
 
         } else{
             return Redirect($excluir);

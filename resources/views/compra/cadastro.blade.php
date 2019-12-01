@@ -4,7 +4,7 @@
 
 @section('titulo')
 CADASTRO DE COMPRAS <br>
-<a style="font-size:22px;" href="/cadastro/compra/produto/">ADICIONAR PRODUTO</a>
+<a class="btn btn-dark" href="/cadastro/compra/produto/">ADICIONAR PRODUTO</a>
 @stop
 
 @section('script')

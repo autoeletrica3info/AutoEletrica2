@@ -22,8 +22,8 @@ class AddCompraProdutoTable extends Migration
             $table->timestamps();
         });
         Schema::table('compra_produto', function($table){
-            $table->foreign('produto_id')->references('id')->on('produto');
-            $table->foreign('compra_id')->references('id')->on('compra');
+            $table->foreign('produto_id')->references('id')->on('produto')->onDelete("cascade");
+            $table->foreign('compra_id')->references('id')->on('compra')->onDelete("cascade");
         });
     }
 

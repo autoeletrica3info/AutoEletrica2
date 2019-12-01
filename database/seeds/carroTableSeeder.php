@@ -12,7 +12,7 @@ class carroTableSeeder extends Seeder
      */
     public function run()
     {
-        carro::create([
+        /*carro::create([
             'placa' => '123-abc',
             'proprietario' => 'Paulo',
             'marca' => 'ford',
@@ -24,7 +24,7 @@ class carroTableSeeder extends Seeder
             'marca' => 'ford',
             'modelo' => 'eco'
         ]);
-
+*/
 
 
     }

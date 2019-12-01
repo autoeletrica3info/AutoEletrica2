@@ -3,7 +3,7 @@
 
 @section('href')
 
-  <a style="font-size:22px;" href="/mostrar/carro/">VOLTAR</a>
+  <a class="btn btn-dark" href="/mostrar/carro/">VOLTAR</a>
 @stop
 
 @section('conteudo')
@@ -22,3 +22,10 @@
 
 
 @stop
+<script>
+  var msg = '{{Session::get('success')}}';
+  var exist = '{{Session::has('success')}}';
+  if(exist){
+    alert(msg);
+  }
+</script>

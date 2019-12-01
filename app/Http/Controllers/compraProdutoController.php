@@ -115,7 +115,7 @@ public function store(Request $request)
             'atendimento_id' => 1
         
     */
-    return redirect('/mostrar/compra')->with('success', 'Produto-Compra criado com sucesso!!');
+    return redirect('/mostrar/compra')->with('success', 'Compra criado com sucesso!!');
 }
 
 public function edit($id)

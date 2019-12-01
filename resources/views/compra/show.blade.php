@@ -3,7 +3,7 @@
 
 @section('href')
 
-  <a style="font-size:22px;" href="/mostrar/compra/">VOLTAR</a>
+  <a class="btn btn-dark" href="/mostrar/compra/">VOLTAR</a>
 @stop
 
 @section('conteudo')
@@ -79,6 +79,13 @@
 </fieldset>
 </form>
 <script>
+  var msg = '{{Session::get('success')}}';
+  var exist = '{{Session::has('success')}}';
+  if(exist){
+    alert(msg);
+  }
+
+
 function funcao1()
 {
 

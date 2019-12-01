@@ -4,13 +4,11 @@
   CARROS
 @stop
 
-@section('href')
-  <a style="font-size:22px;" href="/cadastro/carro/">CADASTRAR</a>
-@stop
-
 @section('conteudo')
-
-
+<a class="btn btn-dark" href="/cadastro/carro/">CADASTRAR</a>
+<a class="btn btn-success" href="/carro/pdf">GERAR PDF</a>
+<br>
+<br>
 <table class="table">
   <thead>
     <tr>
@@ -37,6 +35,14 @@
   @endforeach
   
   </tbody>
-  <a href="/carro/pdf">GERAR PDF</a>
+
 </table>
 @stop
+
+<script>
+  var msg = '{{Session::get('success')}}';
+  var exist = '{{Session::has('success')}}';
+  if(exist){
+    alert(msg);
+  }
+</script>

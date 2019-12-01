@@ -3,7 +3,7 @@
 @section('titulo')
 CADASTRO DE ATENDIMENTOS
 <br>  
-<a style="font-size:22px;" href="/cadastro/atendimento/produto/">ADICIONAR PRODUTO</a>
+<a class="btn btn-dark" href="/cadastro/atendimento/produto/">ADICIONAR PRODUTO</a>
 @stop
 
 @section('script')

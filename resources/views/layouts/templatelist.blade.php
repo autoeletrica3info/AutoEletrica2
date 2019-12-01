@@ -168,7 +168,7 @@
         </div>
         <br>
         <br>
-        <br>
+       
         </div>
         <div class="col-md-12" style="padding-left:20px">
         @yield('conteudo')

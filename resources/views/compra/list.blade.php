@@ -4,12 +4,9 @@
   COMPRAS
 @stop
 
-@section('href')
-  <a style="font-size:22px;" href="/cadastro/compra/">CADASTRAR</a>
-@stop
 
 @section('conteudo')
-
+<a class="btn btn-dark" href="/cadastro/compra/">CADASTRAR</a>
 <button onclick="show()" class="btn btn-success" >GERAR PDF</button>
 <br>
 <br>
@@ -104,6 +101,12 @@ border-radius: 3px 25px 3px 23px; padding: 14px">
             </div>
 
   <script type='text/javascript'>
+  var msg = '{{Session::get('success')}}';
+  var exist = '{{Session::has('success')}}';
+  if(exist){
+    alert(msg);
+  }
+  
   $(document).ready(function() {
   $('#personalizado').hide();
   $('#opcao').change(function() {
