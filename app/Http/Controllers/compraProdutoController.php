@@ -95,15 +95,15 @@ public function store(Request $request)
     //se passou pelas validações, explode request e coloca em um array...
     $resultEX = explode(':', $request['produtos']);
     $produto = $resultEX[0];
-    $preco_unitario = $resultEX[1];
+    $preco_custo = $resultEX[1];
 
     //se passou pelos array, processa e salva no banco...
     $quantidadeA = $request['quantidade'];
     $obj_CompraProduto = new compra_produto();
     $obj_CompraProduto->produto_id = $produto;
     $obj_CompraProduto->quantidade = $request['quantidade'];
-    $obj_CompraProduto->preco_unitario = $preco_unitario;
-    $obj_CompraProduto->valor_total = $preco_unitario * $quantidadeA;
+    $obj_CompraProduto->preco_custo = $preco_custo;
+    $obj_CompraProduto->valor_total = $preco_custo * $quantidadeA;
     $obj_CompraProduto->compra_id = $request['compra'];
     $obj_CompraProduto->save();
 

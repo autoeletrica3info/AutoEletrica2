@@ -16,7 +16,7 @@ class AddCompraProdutoTable extends Migration
         Schema::create('compra_produto', function (Blueprint $table) {
             $table->integer('produto_id')->unsigned();
             $table->integer('quantidade');
-            $table->float('preco_unitario');
+            $table->float('preco_custo');
             $table->float('valor_total');
             $table->integer('compra_id')->unsigned();
             $table->timestamps();

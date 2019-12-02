@@ -263,13 +263,13 @@
                     </div>                  
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Solucionado
+                      <i class="fas fa-circle" style="color:#1cc88a!important"></i> Solucionado
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Em Andamento
+                      <i class="fas fa-circle" style="color:#f6c23e!important"></i> Em Andamento
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Em espera
+                      <i class="fas fa-circle" style="color:#e74a3b!important"></i> Em espera
                     </span>
                   </div>
                 </div>
@@ -452,7 +452,7 @@ var myPieChart = new Chart(ctx, {
       data: [ {{$solucionado}}, {{$emandamento}}, {{$emespera}}
       
     ],
-      backgroundColor: ['#1cc88a', '#f6c23e', '#e74a3b'],
+     /***editar aqui */ backgroundColor: ['#1cc88a', '#f6c23e', '#e74a3b'],
       hoverBackgroundColor: ['#0bb376', '#edaf15', '#ed2613'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],

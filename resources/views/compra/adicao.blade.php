@@ -72,7 +72,7 @@ ADIÇÃO DE PRODUTOS
     <select required  id="produtos" name="produtos" class="form-control">
       <option value="">Escolha o produto</option>
       @foreach($produto as $p)
-      <option value="{{$p->id}}:{{$p->preco_unitario}}" >{{$p->nome}}</option>
+      <option value="{{$p->id}}:{{$p->preco_custo}}" >{{$p->nome}}</option>
       @endforeach
     </select>
   </div>

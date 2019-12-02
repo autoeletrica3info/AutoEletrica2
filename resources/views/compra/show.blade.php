@@ -27,7 +27,7 @@
       <th style="font-size:30px" scope="col">ID Produto</th>
       <th style="font-size:30px" scope="col">ID Compra</th>
       <th style="font-size:30px" scope="col">Quantidade</th>
-      <th style="font-size:30px" scope="col">Valor Unitário</th>
+      <th style="font-size:30px" scope="col">Preço de Custo</th>
       <th style="font-size:30px" scope="col">Valor Final</th>
       <th style="font-size:30px" scope="col">Excluir</th>
       
@@ -40,7 +40,7 @@
       <th style="font-size:30px" scope="row">{{$row->produto_id}}</th>
       <th style="font-size:30px" scope="row">{{$row->compra_id}}</th>
       <td style="font-size:30px">{{$row->quantidade}}</td>
-      <td style="font-size:30px">{{$row->preco_unitario}}</td>
+      <td style="font-size:30px">{{$row->preco_custo}}</td>
       <td style="font-size:30px" class="valor_calculado">{{$row->valor_total}}</td>
       <td style="font-size:30px"><a href="/excluir/compra/produto/{{$row->produto_id}}/{{$row->compra_id}}"><img src="/image/excluir.png"  height="20" width="20"></a></td>
     </tr>
