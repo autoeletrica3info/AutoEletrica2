@@ -10,7 +10,7 @@ Formulário de Exclusão de Produtos-Atendimentos
     {{ csrf_field() }}
     {{ method_field('DELETE') }}
     <p style="font-size: 32px">Deseja mesmo excluir {{$result->produto_id}} ?</p>
-    <button class="btn btn-danger" type="submit">Deleter</button>
+    <button class="btn btn-danger" type="submit">Deletar</button>
 </form>
 <br>
 <br>
